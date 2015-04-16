@@ -527,7 +527,7 @@ i.current {
 		}
 	}
 }
-.icon-taobao,.icon-big-taobao,.icon-tel,.icon-mls,.icon-cat,.icon-special,.level-star,.five,.ten,.twenty,.icon-set-arrow,.icon-attention,.message,.level,.r-arrow-big,.icon-dfk,.icon-dqr,.tool-icon1,.tool-icon2,.tool-icon3,.tool-icon4,.tool-icon5,.tool-icon6,.tool-icon7,.tool-icon8,.tool-icon9,.tool-icon10,.icon-phone,.icon-stb,.icon-house,.icon-point,.icon-proceeding {
+.icon-taobao,.icon-big-taobao,.icon-tel,.icon-mls,.icon-cat,.icon-special,.level-star,.five,.ten,.twenty,.icon-set-arrow,.icon-attention,.message,.level,.r-arrow-big,.icon-dfk,.icon-dqr,.tool-icon1,.tool-icon2,.tool-icon3,.tool-icon4,.tool-icon5,.tool-icon6,.tool-icon7,.tool-icon8,.tool-icon9,.tool-icon10,.icon-phone,.icon-stb,.icon-house,.icon-point,.icon-proceeding,.icon-ewyq,.icon-rwbz {
 	background-image: image-url('icon.png');
 	-webkit-background-size: $bg-size;
 	background-size: $bg-size;
@@ -1342,6 +1342,8 @@ footer {
 		margin: 0;
 		font-weight: normal;
 		line-height: 30px;
+		font-size: 16px;
+		font-style: normal;
 	}
 }
 .target-pro-l {
@@ -1366,4 +1368,67 @@ footer {
 		font-style: normal;
 		color: #0899d6;
 	}
+}
+.open-tb {
+	text-align: right;
+	line-height: 20px;
+	margin-bottom: 10px;
+	a {
+		line-height: 20px;
+		background: #f3972b;
+		@include border-radius(5px);
+		padding: 0 5px;
+		color: #fff;
+	}
+	
+}
+.m20 {
+	margin: 20px 0;
+}
+.icon-ewyq {
+	@extend .icon-point;
+	background-position: -142px -93px;
+}
+.icon-rwbz {
+	@extend .icon-point;
+	width: 15px;
+	height: 15px;
+	background-position: -129px -121px;
+}
+.step {
+	color: #608dc3;
+	font-size: 18px;
+	padding: 10px 0 0 15px;
+	a {
+		float: right;
+		margin-right: 20px;
+		color: #f08511;
+	}	
+}
+.pic-list {
+	width: 100%;
+	overflow: hidden;
+	div {
+		width: 33.333333%;
+		float: left;
+		line-height: 36px;
+		text-align: center;
+		a {
+			color: #828486;
+		}
+		img {
+			max-width: 90%;
+		}
+	}
+}
+.step-intro {
+	background: #fff;
+	line-height: 56px;
+	font-size: 16px;
+	color: #007aff;
+	text-align: center;
+}
+.real-pay {
+	font-size: 14px;
+	color: #000;
 }

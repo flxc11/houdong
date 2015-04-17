@@ -1432,3 +1432,43 @@ footer {
 	font-size: 14px;
 	color: #000;
 }
+.bind-tb {
+	background: #fefefe;
+	overflow: hidden;
+	padding: 10px 12px 10px 20px;
+	p {
+		clear: both;
+		color: #bbb;
+		padding-top: 10px;
+	}
+}
+.jt-img {
+	float: right;
+	a {
+		color: #f75167;
+		font-size: 16px;
+	}
+}
+.txmx {
+	text-align: right;
+	font-size: 14px;
+	padding: 10px 12px 10px 0;
+	a {
+		color: #69696a;
+		text-decoration: underline;
+	}
+}
+#tx-info {
+	text-align: center;
+	font-size: 16px;
+	color: #555;
+	padding: 0;
+	margin: 0;
+}
+.bank {
+	text-align: center;
+	line-height: 56px;
+	background: #fff;
+	margin-bottom: 10px;
+	color: #8b8d8d;
+}

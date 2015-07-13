@@ -6,6 +6,7 @@
 	<title>任务赚金</title>
 	<!-- 新 Bootstrap 核心 CSS 文件 -->
 	<link rel="stylesheet" href="css/bootstrap.css">
+	<script src="js/jquery.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -15,111 +16,7 @@
 			任务赚金
 		</header>
 		<div class="order-list">
-			<div class="order-item">
-				<i class="icon-big-taobao"></i>
-				<div class="order-cnt">
-					<div class="leval">
-						小号等级：<i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i>
-					</div>
-					<div class="order-cnt-1">
-						任务编号：201412<br>
-						订单类型：远程付款<br>
-						<span style='font-size: 16px;'>垫付 ￥158</span><br>
-						<span class="yj">￥15<em> 佣金</em></span>
-						件数：10件
-					</div>
-				</div>
-				<div class="qd">
-					<a href="#">
-					<span class="last">剩下10单</span>
-					<span class="action">马上抢</span>
-					</a>
-				</div>
-			</div>
-			<div class="order-item">
-				<i class="icon-big-taobao"></i>
-				<div class="order-cnt">
-					<div class="leval">
-						小号等级：<i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i>
-					</div>
-					<div class="order-cnt-1">
-						任务编号：201412<br>
-						订单类型：远程付款<br>
-						<span style='font-size: 16px;'>垫付 ￥158</span><br>
-						<span class="yj">￥15<em> 佣金</em></span>
-						件数：10件
-					</div>
-				</div>
-				<div class="qd">
-					<a href="#">
-					<span class="last">剩下10单</span>
-					<span class="action">马上抢</span>
-					</a>
-				</div>
-			</div>
-			<div class="order-item">
-				<i class="icon-big-taobao"></i>
-				<div class="order-cnt">
-					<div class="leval">
-						小号等级：<i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i>
-					</div>
-					<div class="order-cnt-1">
-						任务编号：201412<br>
-						订单类型：远程付款<br>
-						<span style='font-size: 16px;'>垫付 ￥158</span><br>
-						<span class="yj">￥15<em> 佣金</em></span>
-						件数：10件
-					</div>
-				</div>
-				<div class="qd">
-					<a href="#">
-					<span class="last">剩下10单</span>
-					<span class="action">马上抢</span>
-					</a>
-				</div>
-			</div>
-			<div class="order-item">
-				<i class="icon-big-taobao"></i>
-				<div class="order-cnt">
-					<div class="leval">
-						小号等级：<i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i>
-					</div>
-					<div class="order-cnt-1">
-						任务编号：201412<br>
-						订单类型：远程付款<br>
-						<span style='font-size: 16px;'>垫付 ￥158</span><br>
-						<span class="yj">￥15<em> 佣金</em></span>
-						件数：10件
-					</div>
-				</div>
-				<div class="qd">
-					<a href="#">
-					<span class="last">剩下10单</span>
-					<span class="action">马上抢</span>
-					</a>
-				</div>
-			</div>
-			<div class="order-item">
-				<i class="icon-big-taobao"></i>
-				<div class="order-cnt">
-					<div class="leval">
-						小号等级：<i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i>
-					</div>
-					<div class="order-cnt-1">
-						任务编号：201412<br>
-						订单类型：远程付款<br>
-						<span style='font-size: 16px;'>垫付 ￥158</span><br>
-						<span class="yj">￥15<em> 佣金</em></span>
-						件数：10件
-					</div>
-				</div>
-				<div class="qd">
-					<a href="#">
-					<span class="last">剩下10单</span>
-					<span class="action">马上抢</span>
-					</a>
-				</div>
-			</div>
+			
 		</div>
 		<footer>
 			<div>
@@ -136,5 +33,106 @@
 			</div>
 		</footer>
 	</div>
+	<script>
+		$(function() {
+			GetList();
+		})
+		GetList = function() {
+			loading = false;
+			curpage = 0;
+			//window.curpage = curpage;
+			pagecount = "";
+			//window.pagecount = pagecount;
+			loadMore();
+			$(window).scroll(function () {
+				// 当滚动到最底部以上100像素时， 加载新内容
+				console.log($(".order-list").height() - $(window).scrollTop());
+
+				//正式代码
+				// if ($(".order-list").height() - $(window).scrollTop()< 400 && curpage != pagecount && !loading) {
+				// 	loading = true;
+				// 	loadMore();
+				// }
+
+				//测试代码 生产环境中请删除
+				if ($(".order-list").height() - $(window).scrollTop()< 400 && !loading) {
+					loading = true;
+					loadMore();
+				}
+			});
+		}
+		loadMore = function() {
+			$.ajax({
+				//dataType: 'json',
+				//type: 'post',
+				//url: '/json',
+				// data: {
+				// 	Action: 'list',
+				// 	PageNo: ++curpage
+				// },
+				beforeSend: function() {
+					$('<div class="spinner" style="text-align:center;line-height:30px;">玩命加载中</div>').appendTo($(".order-list"));
+				},
+				success: function(data){
+					$(".spinner").remove();
+
+
+					//测试数据，生产环境中请删除
+					var _temp = '<div class="order-item"><i class="icon-big-taobao"></i><div class="order-cnt"><div class="leval">小号等级：<i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i></div><div class="order-cnt-1">任务编号：201412<br>订单类型：远程付款<br><span style="font-size: 16px;">垫付 ￥158</span><br><span class="yj">￥15<em> 佣金</em></span>件数：10件</div></div><div class="qd"><a href="#"><span class="last">剩下10单</span><span class="action">马上抢</span></a></div></div><div class="order-item"><i class="icon-big-taobao"></i><div class="order-cnt"><div class="leval">小号等级：<i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i></div><div class="order-cnt-1">任务编号：201412<br>订单类型：远程付款<br><span style="font-size: 16px;">垫付 ￥158</span><br><span class="yj">￥15<em> 佣金</em></span>件数：10件</div></div><div class="qd"><a href="#"><span class="last">剩下10单</span><span class="action">马上抢</span></a></div></div><div class="order-item"><i class="icon-big-taobao"></i><div class="order-cnt"><div class="leval">小号等级：<i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i></div><div class="order-cnt-1">任务编号：201412<br>订单类型：远程付款<br><span style="font-size: 16px;">垫付 ￥158</span><br><span class="yj">￥15<em> 佣金</em></span>件数：10件</div></div><div class="qd"><a href="#"><span class="last">剩下10单</span><span class="action">马上抢</span></a></div></div><div class="order-item"><i class="icon-big-taobao"></i><div class="order-cnt"><div class="leval">小号等级：<i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i></div><div class="order-cnt-1">任务编号：201412<br>订单类型：远程付款<br><span style="font-size: 16px;">垫付 ￥158</span><br><span class="yj">￥15<em> 佣金</em></span>件数：10件</div></div><div class="qd"><a href="#"><span class="last">剩下10单</span><span class="action">马上抢</span></a></div></div><div class="order-item"><i class="icon-big-taobao"></i><div class="order-cnt"><div class="leval">小号等级：<i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i></div><div class="order-cnt-1">任务编号：201412<br>订单类型：远程付款<br><span style="font-size: 16px;">垫付 ￥158</span><br><span class="yj">￥15<em> 佣金</em></span>件数：10件</div></div><div class="qd"><a href="#"><span class="last">剩下10单</span><span class="action">马上抢</span></a></div></div>';
+
+					$(_temp).appendTo($(".order-list")).fadeIn();
+
+
+					//正式代码
+					// pagecount = data.page;
+					// if(curpage > pagecount) {
+					// 	return false;
+					// }
+					// else {
+					// 	if(data.cubes.length > 0) {
+					// 		if(curpage == pagecount) {
+					// 			$('<div style="text-align: center; line-height:30px;">已经到最后啦</div>').appendTo($(".order-list"));
+					// 		}
+					// 	}
+					// 	var html = "";
+					// 	$.each(data.cubes, 
+					// 		function(i,v) {
+					// 			var html = "";
+					// 			html += '<div class="order-item">';
+					// 			html += 	'<i class="icon-big-taobao"></i>';
+					// 			html += 	'<div class="order-cnt">';
+					// 			html += 		'<div class="leval">';
+					// 			html += 			'小号等级：<i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i><i class="level-star"></i>';
+					// 			html += 		'</div>';
+					// 			html += 		'<div class="order-cnt-1">';
+					// 			html += 			'任务编号：201412<br>';
+					// 			html += 			'订单类型：远程付款<br>';
+					// 			html += 			'<span style='font-size: 16px;'>垫付 ￥158</span><br>';
+					// 			html += 			'<span class="yj">￥15<em> 佣金</em></span>';
+					// 			html += 			'件数：10件';
+					// 			html += 		'</div>';
+					// 			html += 	'</div>';
+					// 			html += 	'<div class="qd">';
+					// 			html += 		'<a href="#">';
+					// 			html += 		'<span class="last">剩下10单</span>';
+					// 			html += 		'<span class="action">马上抢</span>';
+					// 			html += 		'</a>';
+					// 			html += 	'</div>';
+					// 			html += '</div>';
+					// 			$(html).appendTo($(".order-list")).fadeIn();
+					// 		})
+					// }
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					//- console.log(XMLHttpRequest.status);
+					//- console.log(XMLHttpRequest.readyState);
+					//- console.log(textStatus);
+				},
+				complete: function () {
+					loading = false;
+				}
+			})
+		}
+	</script>
 </body>
 </html>

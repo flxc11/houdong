@@ -6,6 +6,7 @@
 	<title>我要推广</title>
 	<!-- 新 Bootstrap 核心 CSS 文件 -->
 	<link rel="stylesheet" href="css/bootstrap.css">
+	<script src="js/jquery.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -53,7 +54,7 @@
 				<div class="invite-cnt-child">每个受邀请人安装注册并成功完成一单淘宝任务后奖励5元。</div>
 			</div>
 		</div>
-		<div class="share-btn"><a href="#">分享给好友</a></div>
+		<div class="share-btn -mob-share-open"><a href="#">分享给好友</a></div>
 		<footer>
 			<div>
 				<a href="#"><em class="tool-icon7"></em><br>财务信息</a>
@@ -69,5 +70,30 @@
 			</div>
 		</footer>
 	</div>
+	<!--MOB SHARE BEGIN-->
+<div class="-mob-share-ui" style="display: none">
+    <ul class="-mob-share-list">
+        <li class="-mob-share-weibo"><p>新浪微博</p></li>
+        <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+        <li class="-mob-share-qzone"><p>QQ空间</p></li>
+        <li class="-mob-share-qq"><p>QQ好友</p></li>
+        <li class="-mob-share-weixin"><p>微信</p></li>
+    </ul>
+    <div class="-mob-share-close">取消</div>
+</div>
+<div class="-mob-share-ui-bg"></div>
+<script id="-mob-share" src="js/mob-share.js?appkey=7df2a0001776"></script>
+<!--MOB SHARE END-->
 </body>
+<script>
+        mobShare.config({
+            params: {
+                title: '你好你好你好',
+            }
+        })
+
+        
+
+    </script>
+
 </html>

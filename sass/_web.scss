@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 ul,li {
 	list-style: none;
 	padding: 0;
@@ -1535,4 +1535,40 @@ border-color:#111111; }
 }
 #uploader-div {
 	width: auto; float:none;left:50%;margin-left: -120px;
+}
+.help-h1 {
+	text-align: center;
+	font-size: 14px;
+}
+.item-select {
+	width: 90%;
+	overflow: hidden;
+	margin: 10px auto;
+	h2 {
+		line-height: 34px;
+		padding: 0 10px;
+		background: #d9dde0;
+		font-size: 14px;
+		color: #6c7379;
+		margin: 0;
+	}
+	ul {
+		width: 100%;
+		overflow: hidden;
+		display: none;
+		li {
+			line-height: 46px;
+			border-bottom: 1px solid #b7b7b7;
+		}
+	}
+}
+.icon-angle-down {
+	font-size: 30px;
+	float: right;
+	color: #549bc7;
+	margin-top: -10px;
+}
+.icon-circle-blank {
+	font-size: 1px;
+	line-height: 0;
 }

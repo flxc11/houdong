@@ -20,6 +20,46 @@
 		<div class="item-select">
 			<h2 class="item-select-title">1、注册<i class="icon-angle-down"></i></h2>
 			<ul class="item-select-ul">
+				<a href="10-2.html"><li><i class="icon-circle-blank"></i> 绑定身份证及要求</li></a>
+				<a href="10-2.html"><li><i class="icon-circle-blank"></i> 绑定身份证及要求</li></a>
+				<a href="10-2.html"><li><i class="icon-circle-blank"></i> 绑定身份证及要求</li></a>
+				<a href="10-2.html"><li><i class="icon-circle-blank"></i> 绑定身份证及要求</li></a>
+				<a href="10-2.html"><li><i class="icon-circle-blank"></i> 绑定身份证及要求</li></a>
+			</ul>
+		</div>
+		<div class="item-select">
+			<h2 class="item-select-title">2、登录<i class="icon-angle-down"></i></h2>
+			<ul class="item-select-ul">
+				<li><i class="icon-circle-blank"></i> 绑定身份证及要求</li>
+				<li><i class="icon-circle-blank"></i> 绑定身份证及要求</li>
+				<li><i class="icon-circle-blank"></i> 绑定身份证及要求</li>
+				<li><i class="icon-circle-blank"></i> 绑定身份证及要求</li>
+				<li><i class="icon-circle-blank"></i> 绑定身份证及要求</li>
+			</ul>
+		</div>
+		<div class="item-select">
+			<h2 class="item-select-title">3、首页<i class="icon-angle-down"></i></h2>
+			<ul class="item-select-ul">
+				<li><i class="icon-circle-blank"></i> 绑定身份证及要求</li>
+				<li><i class="icon-circle-blank"></i> 绑定身份证及要求</li>
+				<li><i class="icon-circle-blank"></i> 绑定身份证及要求</li>
+				<li><i class="icon-circle-blank"></i> 绑定身份证及要求</li>
+				<li><i class="icon-circle-blank"></i> 绑定身份证及要求</li>
+			</ul>
+		</div>
+		<div class="item-select">
+			<h2 class="item-select-title">4、新手任务<i class="icon-angle-down"></i></h2>
+			<ul class="item-select-ul">
+				<li><i class="icon-circle-blank"></i> 绑定身份证及要求</li>
+				<li><i class="icon-circle-blank"></i> 绑定身份证及要求</li>
+				<li><i class="icon-circle-blank"></i> 绑定身份证及要求</li>
+				<li><i class="icon-circle-blank"></i> 绑定身份证及要求</li>
+				<li><i class="icon-circle-blank"></i> 绑定身份证及要求</li>
+			</ul>
+		</div>
+		<div class="item-select">
+			<h2 class="item-select-title">5、账号绑定<i class="icon-angle-down"></i></h2>
+			<ul class="item-select-ul">
 				<li><i class="icon-circle-blank"></i> 绑定身份证及要求</li>
 				<li><i class="icon-circle-blank"></i> 绑定身份证及要求</li>
 				<li><i class="icon-circle-blank"></i> 绑定身份证及要求</li>
@@ -46,15 +86,19 @@
 <script>
 	$(function(){
 		$(".item-select-title").on("click", function(){
-			$(".item-select-ul").hide();
 			var $ul = $(this).next();
 			var _visible = $ul.is(":visible");
-			console.log($ul.is(":visible"));
 			if (!_visible) {
+				$(".item-select-ul").hide();
+				$(".item-select-title").find("i").attr("class", "icon-angle-down");
 				_visible = true;
-				$(this).next().show();
+				$(this).attr("style","color:#549bc7");
+				$(this).find("i").attr("class", "icon-angle-up");
+				$(this).next().slideDown();
 			} else {
 				_visible = false;
+				$(this).attr("style","");
+				$(this).find("i").attr("class", "icon-angle-down");
 				$(this).next().hide();
 			};
 			

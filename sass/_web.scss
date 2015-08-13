@@ -1562,7 +1562,7 @@ border-color:#111111; }
 		}
 	}
 }
-.icon-angle-down {
+.icon-angle-down,.icon-angle-up {
 	font-size: 30px;
 	float: right;
 	color: #549bc7;
@@ -1571,4 +1571,10 @@ border-color:#111111; }
 .icon-circle-blank {
 	font-size: 1px;
 	line-height: 0;
+}
+.c549bc7 {
+	color: #549bc7;
+}
+.stepic-wrap img {
+	max-width: 100%;
 }

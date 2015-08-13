@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>注册</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<script src="js/jquery.min.js"></script>
+</head>
+<body style="background: #f6f6f6;">
+	<div class="container">
+		<header>
+			<div class="kf"><a href="#">客服</a></div>
+			<a href="javascript:history.back();"><div class="btn-sbar"></div></a>
+			注册
+		</header>
+		<div class="container">
+			<div class="stepic-wrap">
+				<img class="step_pic" src="images/step_1_hd.jpg">
+				<img class="step_pic" id="sp1-1" src="images/step_1_1.jpg">
+				<img class="step_pic" id="sp1-2" src="images/step_1_2.jpg">
+				<img class="step_pic" id="sp1-3" src="images/step_1_3.jpg">
+				<img class="step_pic" id="sp1-4" src="images/step_1_4.jpg">
+			</div>
+		</div>
+
+		<footer>
+			<div>
+				<a href="#"><em class="tool-icon7"></em><br>财务信息</a>
+			</div>
+			<div>
+				<a href="#"><em class="tool-icon8"></em><br>任务中心</a>
+			</div>
+			<div>
+				<a href="#"><em class="tool-icon9"></em><br>个人中心</a>
+			</div>
+			<div>
+				<a href="#"><em class="tool-icon10"></em><br>更多</a>
+			</div>
+		</footer>
+	</div>
+</body>
+<script>
+	$(function(){
+		$(".item-select-title").on("click", function(){
+			var $ul = $(this).next();
+			var _visible = $ul.is(":visible");
+			if (!_visible) {
+				$(".item-select-ul").hide();
+				_visible = true;
+				$(this).attr("style","color:#549bc7");
+				$(this).find("i").attr("class", "icon-angle-up");
+				$(this).next().slideDown();
+			} else {
+				_visible = false;
+				$(this).attr("style","");
+				$(this).find("i").attr("class", "icon-angle-down");
+				$(this).next().hide();
+			};
+			
+		})
+	})
+</script>
+</html>

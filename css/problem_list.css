@@ -1,0 +1,10 @@
+
+body{min-width: 320px;max-width: 480px;margin: auto;background-color: #fff;}
+
+.pt-12{padding-top: 12px;}
+.info-box{padding-top: 5px;}
+.info-box > h2{height: 28px;line-height: 28px;background-color: #e4f1f7;color: #3b3b3c;font-size: 15px;padding-left: 14px;}
+.info-box ol{padding: 0px 14px;color: #919192;line-height: 1.6em;}
+.info-box ol li{padding-bottom: 14px;}
+
+

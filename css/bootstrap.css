@@ -3037,7 +3037,7 @@ i.current {
 }
 
 /* line 530, ../sass/_web.scss */
-.icon-taobao, .icon-big-taobao, .icon-tel, .icon-mls, .icon-cat, .icon-special, .level-star, .five, .ten, .twenty, .icon-set-arrow, .icon-attention, .message, .level, .r-arrow-big, .icon-dfk, .icon-dqr, .tool-icon1, .tool-icon2, .tool-icon3, .tool-icon4, .tool-icon5, .tool-icon6, .tool-icon7, .tool-icon8, .tool-icon9, .tool-icon10,.new-tool-icon1, .new-tool-icon2, .new-tool-icon3, .new-tool-icon4, .new-tool-icon5, .new-tool-icon6, .new-tool-icon7 {
+.icon-taobao, .icon-big-taobao, .icon-tel, .icon-mls, .icon-cat, .icon-special, .level-star, .level-star1, .five, .ten, .twenty, .icon-set-arrow, .icon-attention, .message, .level, .r-arrow-big, .icon-dfk, .icon-dqr, .tool-icon1, .tool-icon2, .tool-icon3, .tool-icon4, .tool-icon5, .tool-icon6, .tool-icon7, .tool-icon8, .tool-icon9, .tool-icon10,.new-tool-icon1, .new-tool-icon2, .new-tool-icon3, .new-tool-icon4, .new-tool-icon5, .new-tool-icon6, .new-tool-icon7 {
   background-image: url('../images/icon.png?1428590346');
   -webkit-background-size: 230px;
   background-size: 230px;
@@ -3084,6 +3084,18 @@ i.current {
   float: left;
 }
 
+.icon-big-taobao1 {
+  width: 80px;
+  height: 80px;
+  vertical-align: middle;
+  margin: 15px;
+  display: inline-block;
+  float: left;
+  overflow: hidden;
+}
+.icon-big-taobao1 img {
+  max-width: 80px;
+}
 /* line 562, ../sass/_web.scss */
 .order-list, .order-item {
   width: 100%;
@@ -3112,6 +3124,15 @@ i.current {
   height: 7px;
   vertical-align: middle;
   background-position: -137px 0;
+  margin-right: 3px;
+}
+
+.level-star1 {
+  display: inline-block;
+  width: 11px;
+  height: 10px;
+  vertical-align: middle;
+  background-position: -152px 0;
   margin-right: 3px;
 }
 
@@ -3281,16 +3302,39 @@ i.current {
 
 
 /* line 595, ../sass/_web.scss */
+.qd-wrap {
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
 .qd {
   border: 1px solid #ff1c32;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  display: block;
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
   background: #ff1c32;
+}
+.qd-time {
+  padding-bottom: 5px;
+}
+.qd-time h2 {
+  color: #d82d0c;
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+.qd-time span {
+  width: 24px;
+  height: 24px;
+  background: #333;
+  line-height: 24px;
+  color: #fff;
+  display: inline-block;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .qd2 {

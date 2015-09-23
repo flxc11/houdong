@@ -7,6 +7,7 @@
 	<!-- 新 Bootstrap 核心 CSS 文件 -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<script src="js/jquery.min.js"></script>
+	<script src="js/countdown.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -34,9 +35,86 @@
 		</footer>
 	</div>
 	<script>
+		/*
+	Class:    	countDown
+	Author:   	David Walsh
+	Website:    http://davidwalsh.name
+	Version:  	1.0.0
+	Date:     	11/30/2008
+	Built For:  jQuery 1.2.6
+*/
+
+// jQuery.fn.countDown = function(settings,to) {
+// 	settings = jQuery.extend({
+// 		startFontSize: '36px',
+// 		endFontSize: '12px',
+// 		duration: 1000,
+// 		startNumber: 10,
+// 		endNumber: 0,
+// 		callBack: function() { }
+// 	}, settings);
+// 	return this.each(function() {
+		
+// 		//where do we start?
+// 		if(!to && to != settings.endNumber) { to = settings.startNumber; }
+		
+// 		//set the countdown to the starting number
+// 		$(this).text(to).css('fontSize',settings.startFontSize);
+		
+// 		//loopage
+// 		$(this).animate({
+// 			'fontSize': settings.endFontSize
+// 		},settings.duration,'',function() {
+// 			if(to > settings.endNumber + 1) {
+// 				$(this).css('fontSize',settings.startFontSize).text(to - 1).countDown(settings,to - 1);
+// 			}
+// 			else
+// 			{
+// 				settings.callBack(this);
+// 			}
+// 		});
+				
+// 	});
+// };
+
+/* sample usage 
+
+$('#countdown').countDown({
+	startNumber: 10,
+	callBack: function(me) {
+		$(me).text('All done! This is where you give the reward!').css('color','#090');
+	}
+});*/
 		$(function() {
 			GetList();
 		})
+		countDown =	function (time,id){
+			var hour_elem = $(id).find('.qd-hour');
+			var minute_elem = $(id).find('.qd-minute');
+			var second_elem = $(id).find('.qd-second');
+
+			//if(typeof end_time == "string")
+			var end_time = new Date(time).getTime(),//月份是实际月份-1
+			sys_second = (end_time-new Date().getTime())/1000;
+			var timer = setInterval(function(){
+				if (sys_second > 1) {
+					sys_second -= 1;
+					var hour = Math.floor((sys_second / 3600));
+					var minute = Math.floor((sys_second / 60) % 60);
+					var second = Math.floor(sys_second % 60);
+					$(hour_elem).text(hour<10?"0"+hour:hour);//计算小时
+					$(minute_elem).text(minute<10?"0"+minute:minute);//计算分钟
+					$(second_elem).text(second<10?"0"+second:second);//计算秒杀
+				} else {
+					clearInterval(timer);
+					$(id).parent().next().removeClass('bg666')
+					.addClass('bgff1c32')
+					.find('span.action')
+					.text("马上抢");
+					console.log($(id).parent().next().find('span.action'))
+				}
+			}, 1000);
+		}
 		GetList = function() {
 			loading = false;
 			curpage = 0;
@@ -46,7 +124,7 @@
 			loadMore();
 			$(window).scroll(function () {
 				// 当滚动到最底部以上100像素时， 加载新内容
-				console.log($(".order-list").height() - $(window).scrollTop());
+				//console.log($(".order-list").height() - $(window).scrollTop());
 
 				//正式代码
 				// if ($(".order-list").height() - $(window).scrollTop()< 400 && curpage != pagecount && !loading) {
@@ -78,9 +156,11 @@
 
 
 					//测试数据，生产环境中请删除
-					var _temp = '<div class="order-item"><i class="icon-big-taobao1"><img src="images/imgtask01.jpg" alt="" /></i><div class="order-cnt"><div class="leval">等级：<i class="level-star1"></i><i class="level-star1"></i><i class="level-star1"></i><i class="level-star1"></i></div><div class="order-cnt-1"><span class="yj">￥15<em> 佣金</em></span>订单类型：远程付款<br><span style="font-size: 16px;">垫付 ￥158</span></div></div><div class="qd-wrap"><div class="qd-time"><h2>开抢时间</h2><span class="qd-hour">24</span> : <span class="qd-monute">24</span> : <span class="qd-second">24</span></div><div class="qd"><a href="#"><span class="last">剩下10单</span><span class="action">马上抢</span></a></div></div></div><div class="order-item"><i class="icon-big-taobao1"><img src="images/imgtask01.jpg" alt="" /></i><div class="order-cnt"><div class="leval">等级：<i class="level-star1"></i><i class="level-star1"></i><i class="level-star1"></i><i class="level-star1"></i></div><div class="order-cnt-1"><span class="yj">￥15<em> 佣金</em></span>订单类型：远程付款<br><span style="font-size: 16px;">垫付 ￥158</span></div></div><div class="qd-wrap"><div class="qd-time"><h2>开抢时间</h2><span class="qd-hour">24</span> : <span class="qd-monute">24</span> : <span class="qd-second">24</span></div><div class="qd"><a href="#"><span class="last">剩下10单</span><span class="action">马上抢</span></a></div></div></div><div class="order-item"><i class="icon-big-taobao1"><img src="images/imgtask01.jpg" alt="" /></i><div class="order-cnt"><div class="leval">等级：<i class="level-star1"></i><i class="level-star1"></i><i class="level-star1"></i><i class="level-star1"></i></div><div class="order-cnt-1"><span class="yj">￥15<em> 佣金</em></span>订单类型：远程付款<br><span style="font-size: 16px;">垫付 ￥158</span></div></div><div class="qd-wrap"><div class="qd-time"><h2>开抢时间</h2><span class="qd-hour">24</span> : <span class="qd-monute">24</span> : <span class="qd-second">24</span></div><div class="qd"><a href="#"><span class="last">剩下10单</span><span class="action">马上抢</span></a></div></div></div>';
+					var _temp = '<div class="order-item"><i class="icon-big-taobao1"><img src="images/imgtask01.jpg" alt="" /></i><div class="order-cnt"><div class="leval">等级：<i class="level-star1"></i><i class="level-star1"></i><i class="level-star1"></i><i class="level-star1"></i></div><div class="order-cnt-1"><span class="yj">￥15<em> 佣金</em></span>订单类型：远程付款<br><span style="font-size: 16px;">垫付 ￥158</span></div></div><div class="qd-wrap"><div class="qd-time"><h2>开抢时间</h2><div id="order-item-1"><span class="qd-hour">00</span> : <span class="qd-minute">00</span> : <span class="qd-second">00</span></div></div><div class="qd bg666"><a href="#"><span class="last">剩下10单</span><span class="action">时间未到</span></a></div></div></div><div class="order-item"><i class="icon-big-taobao1"><img src="images/imgtask01.jpg" alt="" /></i><div class="order-cnt"><div class="leval">等级：<i class="level-star1"></i><i class="level-star1"></i><i class="level-star1"></i><i class="level-star1"></i></div><div class="order-cnt-1"><span class="yj">￥15<em> 佣金</em></span>订单类型：远程付款<br><span style="font-size: 16px;">垫付 ￥158</span></div></div><div class="qd-wrap"><div class="qd-time"><h2>开抢时间</h2><div id="order-item-2"><span class="qd-hour">00</span> : <span class="qd-minute">00</span> : <span class="qd-second">00</span></div></div><div class="qd bg666"><a href="#"><span class="last">剩下10单</span><span class="action">时间未到</span></a></div></div></div>';
 
 					$(_temp).appendTo($(".order-list")).fadeIn();
+					countDown('2015/9/23 11:17:40','#order-item-1');
+					countDown('2015/9/23 11:18:50','#order-item-2');
 
 
 					//正式代码

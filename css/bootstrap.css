@@ -3309,10 +3309,17 @@ i.current {
   top: 0;
 }
 .qd {
-  border: 1px solid #ff1c32;
+  border: 1px solid #666;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
+  background: #ff1c32;
+}
+.bg666 {
+  background: #666;
+}
+.bgff1c32 {
+  border: 1px solid #ff1c32;
   background: #ff1c32;
 }
 .qd-time {
